@@ -151,25 +151,43 @@ class sproxseqObject:
         Compute combined counts of probeA:probeB and probeB:probeA for all possible protein pairs.
         Result is stored in self.protein_pair_count.
         """
+
+        # Get AB1 and AB2 of each row of data
         AB1 = np.array([s.split(self.sep)[0] for s in self.pla_count.index])
         AB2 = np.array([s.split(self.sep)[1] for s in self.pla_count.index])
+        
+        # Get the unique antibody targets
         A_unique = np.unique(AB1)
         B_unique = np.unique(AB2)
+        
+        #Sava list of the unique protein pairs 
         new_index = [f'{A_unique[i]}{self.sep}{B_unique[j]}' for i in range(len(A_unique)) for j in range(i, len(B_unique))]
         self.protein_pairs = new_index
+        
+        # Initialize output self.protein_pair_countframes
         self.protein_pair_count = pd.DataFrame(0, index=new_index, columns=self.pla_count.columns)
-
+        
         for i in self.protein_pair_count.index:
-            probeA, probeB = i.split(self.sep)
-            try:
-                entry1 = self.pla_count.loc[f'{probeA}{self.sep}{probeB}', :]
-            except KeyError:
-                entry1 = 0
-            try:
-                entry2 = self.pla_count.loc[f'{probeB}{self.sep}{probeA}', :]
-            except KeyError:
-                entry2 = 0
-            self.protein_pair_count.loc[i, :] = entry1 + entry2
+            probeA,probeB = i.split(self.sep)
+            
+            if probeA == probeB:
+                try:
+                    entry = self.pla_count.loc[i, :]
+                except KeyError:
+                    entry = 0  # Set a default value when the entry doesn't exist
+                self.protein_pair_count.loc[i, :] = entry
+            else:
+                try:
+                    entry1 = self.pla_count.loc[f'{probeA}:{probeB}', :]
+                except KeyError:
+                    entry1 = 0  # Set a default value when the entry doesn't exist
+                
+                try:
+                    entry2 = self.pla_count.loc[f'{probeB}:{probeA}', :]
+                except KeyError:
+                    entry2 = 0  # Set a default value when the entry doesn't exist
+
+                self.protein_pair_count.loc[i, :] = entry1 + entry2
 
     def compute_protein_abundance(self):
         """
