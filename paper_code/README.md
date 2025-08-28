@@ -1,6 +1,8 @@
 # Spatial Proximity Sequencing Maps Developmental Dynamics in the Germinal Center
 
-**Huili Wang, Junjie Xia, et al.**
+**Junjie Xia, Huili Wang, et al.**
+
+**Email: jjxia@uchicago.edu, huiliw@uchicago.edu**
 
 This folder contains code to reproduce the analyses presented in the paper using **three samples**.  
 Analyses include spatial clustering and annotation, differential expression analysis, pseudotime inference, and Gene Ontology (GO) enrichment.
