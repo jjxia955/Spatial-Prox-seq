@@ -4,8 +4,10 @@
 
 **Email: jjxia@uchicago.edu, huiliw@uchicago.edu**
 
+Yan Li @UChicago Bioinformatics Core helps review all codes independently. For minor coding issues, please contact **liyan@uchicago.edu**
+
 This folder contains code to reproduce the analyses presented in the paper using **three samples**.  
-Analyses include spatial clustering and annotation, differential expression analysis, pseudotime inference, and Gene Ontology (GO) enrichment.
+Analyses include spatial clustering and annotation, differential expression analysis, pseudotime inference, and pathway enrichment analysis.
 
 ---
 
@@ -36,7 +38,7 @@ Analyses include spatial clustering and annotation, differential expression anal
 
 ### 5. Pseudotime Analysis
 - **A1_B1_D1_code6.3_pseudotime_analysis.ipynb**  
-  Infers developmental trajectories of B cell subsets.
+  Infers developmental trajectories of B cell subset by using DPT.
 
 ### 6. Gene Set Enrichment Analysis (GSEA)
 - **A1_B1_D1_code6.4_GSEA_analysis_CD20_CD32.ipynb**  
