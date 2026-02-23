@@ -51,6 +51,9 @@ Analyses include spatial clustering and annotation, differential expression anal
 - **B1_code7_PP_network_analysis.ipynb** – Network analysis for sample B1.  
 - **D1_code7_PP_network_analysis.ipynb** – Network analysis for sample D1.
 
+### 8. Spatial Deconvolution
+- **revision_folder** - Cell-type composition prediction for each spatial spot, which is later used to interpret Spatial Prox-Seq signals.
+
 ---
 
 ## 📊 Analysis Workflow Overview
